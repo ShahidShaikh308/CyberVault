@@ -1,4 +1,4 @@
-⚡ CyberVault: Next-Gen Digital Storefront
+#⚡ CyberVault: Next-Gen Digital Storefront
 CyberVault is a high-performance, full-stack digital game distribution platform built with the MERN stack. It features a state-driven "Cyberpunk" UI, automated featured asset circulation, and a secure transaction migration protocol.
 
 🚀 Technical Core (The Stack)
