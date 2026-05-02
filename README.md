@@ -5,13 +5,13 @@ CyberVault is a high-performance, full-stack digital game distribution platform 
 ## 🚀 Technical Core (The Stack)
 This project operates as a decoupled architecture where the frontend and backend communicate via RESTful API protocols.
 
-Frontend: React.js with Vite for high-speed development.
+* Frontend: React.js with Vite for high-speed development.
 
-Styling: Tailwind CSS combined with custom CSS for "Glitch" effects and scanline overlays.
+* Styling: Tailwind CSS combined with custom CSS for "Glitch" effects and scanline overlays.
 
-Backend: Node.js and Express.js powering a modular routing system.
+* Backend: Node.js and Express.js powering a modular routing system.
 
-Database: MongoDB Atlas utilizing structured collections for Games, Users, Carts, and Owned assets.
+* Database: MongoDB Atlas utilizing structured collections for Games, Users, Carts, and Owned assets.
 
 ## 🛠️ Key Features
 📡 Neural Hero Banner
