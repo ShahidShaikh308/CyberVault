@@ -1,0 +1,34 @@
+@reference "../index.css";
+
+.hero-container {
+  @apply relative h-[500px] w-full rounded-sm overflow-hidden border border-cyan-500/10 mb-16;
+  animation: heroFade 0.8s ease-out;
+  height: 90vh;
+}
+
+.hero-overlay {
+  @apply absolute inset-0 bg-linear-to-r from-[#050505] via-[#050505]/60 to-transparent z-10;
+}
+
+.hero-content {
+  @apply relative z-20 h-full flex flex-col justify-center p-16 max-w-2xl;
+}
+
+.glitch-text {
+  @apply text-6xl font-black italic uppercase text-white mb-6 leading-none tracking-tighter;
+  text-shadow: 2px 2px 0px theme('colors.fuchsia.500');
+}
+
+.cyber-btn {
+  @apply w-fit px-10 py-4 bg-cyan-500 hover:bg-fuchsia-500 text-black font-black uppercase text-xs transition-all duration-300;
+  clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);
+}
+
+.hero-bg-image {
+  @apply absolute inset-0 bg-gray-800 object-cover opacity-50 grayscale hover:grayscale-0 transition-all duration-700;
+}
+
+@keyframes heroFade {
+  from { opacity: 0; filter: blur(10px); }
+  to { opacity: 1; filter: blur(0px); }
+}

@@ -1,0 +1,41 @@
+@reference "../index.css";
+
+.auth-wrapper {
+  @apply min-h-[80vh] flex items-center justify-center p-6;
+}
+
+.auth-card {
+  @apply w-full max-w-md bg-gray-900/80 backdrop-blur-xl border border-white/5 p-10 rounded-sm shadow-2xl relative overflow-hidden;
+}
+
+.auth-card::before {
+  content: '';
+  @apply absolute top-0 left-0 w-full h-1 bg-linear-to-r from-cyan-500 via-fuchsia-500 to-cyan-500;
+}
+
+.auth-input-group {
+  @apply mb-6;
+}
+
+.auth-label {
+  @apply block text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 mb-2;
+}
+
+.auth-input {
+  @apply w-full bg-black/50 border border-white/10 p-3 text-white text-sm outline-none transition-all;
+}
+
+.auth-input:focus {
+  @apply border-cyan-500/50 bg-black/80;
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.1);
+}
+
+.auth-submit-btn {
+  @apply w-full py-4 bg-white text-black font-black uppercase text-xs tracking-widest transition-all duration-300;
+  clip-path: polygon(5% 0, 100% 0, 95% 100%, 0% 100%);
+}
+
+.auth-submit-btn:hover {
+  @apply bg-cyan-400 -translate-y-0.5;
+  box-shadow: 0 10px 20px rgba(34, 211, 238, 0.2);
+}

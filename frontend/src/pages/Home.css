@@ -1,0 +1,18 @@
+@reference "../index.css";
+
+.hero-banner {
+  @apply relative h-[450px] bg-gray-900 rounded-sm border border-white/5 overflow-hidden flex items-center p-12 mb-12;
+}
+
+.hero-glow {
+  @apply absolute inset-0 bg-linear-to-r from-black via-black/40 to-transparent z-10;
+}
+
+.cyber-button {
+  @apply bg-cyan-500 text-black px-10 py-4 font-black uppercase text-xs transition-all duration-300;
+  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+}
+
+.cyber-button:hover {
+  @apply bg-fuchsia-500 shadow-[0_0_20px_#ff00ff];
+}

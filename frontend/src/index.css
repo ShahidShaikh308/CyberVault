@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+:root {
+  --cyber-dark: #050505;
+  --cyber-cyan: #00f3ff;
+  --cyber-fuchsia: #ff00ff;
+}
+
+@layer base {
+  body {
+    @apply bg-[#050505] text-slate-300 m-0 overflow-x-hidden;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Global Scanlines - Stays here as it's a global effect */
+.scanlines {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%),
+              linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  background-size: 100% 4px, 3px 100%;
+  pointer-events: none;
+  z-index: 1000;
+}

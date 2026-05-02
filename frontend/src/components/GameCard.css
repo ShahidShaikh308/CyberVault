@@ -1,0 +1,50 @@
+@reference "../index.css";
+
+.card-container {
+  @apply relative flex flex-col cursor-pointer transition-all duration-300;
+}
+
+.card-image-wrapper {
+  @apply relative aspect-3/4 w-full overflow-hidden rounded-md border border-white/5 bg-gray-900;
+  transition: border-color 0.3s ease;
+}
+
+.card-container:hover .card-image-wrapper {
+  @apply border-cyan-500/50 shadow-[0_0_15px_rgba(34,211,238,0.1)];
+}
+
+.card-image-placeholder {
+  @apply absolute inset-0 flex items-center justify-center text-[10px] uppercase font-black text-white/10 text-center px-4 transition-all duration-500;
+}
+
+.card-container:hover .card-image-placeholder {
+  @apply text-fuchsia-500/40 scale-110;
+}
+
+.card-badge {
+  @apply absolute top-2 left-2 bg-black/80 backdrop-blur-md text-[9px] font-black px-2 py-1 rounded-sm border border-white/10 text-white z-10;
+}
+
+.card-info {
+  @apply mt-3 space-y-1;
+}
+
+.card-title {
+  @apply text-sm font-bold text-white truncate group-hover:text-cyan-400 transition-colors;
+}
+
+.card-genre {
+  @apply text-[10px] font-black text-slate-500 uppercase tracking-widest;
+}
+
+.card-price-row {
+  @apply flex items-center gap-2 mt-1;
+}
+
+.price-tag {
+  @apply text-xs font-black text-white italic;
+}
+
+.discount-tag {
+  @apply bg-cyan-500 text-black text-[10px] font-black px-1.5 py-0.5 rounded-sm;
+}

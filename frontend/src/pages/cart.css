@@ -1,0 +1,12 @@
+.cart-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 80vh;
+}
+
+/* Add a slight glow to the summary card on hover */
+.cart-summary-glow:hover {
+  border-color: rgba(6, 182, 212, 0.4);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}

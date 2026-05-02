@@ -1,0 +1,31 @@
+@reference "../index.css";
+
+.library-container {
+  @apply max-w-[1400px] mx-auto px-12 py-16 min-h-screen;
+}
+
+.library-tabs {
+  @apply flex gap-12 mb-12 border-b border-white/5;
+}
+
+.lib-tab-item {
+  @apply pb-4 text-xs font-black uppercase tracking-[0.3em] cursor-pointer transition-all relative;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.lib-tab-item:hover {
+  @apply text-white;
+}
+
+.lib-tab-active {
+  @apply text-cyan-400;
+}
+
+.lib-tab-active::after {
+  content: '';
+  @apply absolute -bottom-px left-0 w-full h-[2px] bg-cyan-500 shadow-[0_0_10px_#22d3ee];
+}
+
+.empty-state {
+  @apply flex flex-col items-center justify-center py-40 border border-dashed border-white/5 rounded-sm;
+}

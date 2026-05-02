@@ -1,0 +1,72 @@
+@reference "../index.css";
+
+.details-banner {
+  @apply relative w-full h-[70vh] overflow-hidden;
+}
+
+.details-banner-img {
+  @apply w-full h-full object-cover object-top opacity-60;
+}
+
+.details-content {
+  @apply max-w-[1400px] mx-auto px-12 -mt-60 relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-16 pb-20;
+}
+
+.action-card {
+  @apply bg-gray-900/90 backdrop-blur-xl border border-white/10 p-6 rounded-sm sticky top-28 h-fit shadow-2xl;
+}
+
+.buy-btn {
+  @apply w-full py-4 bg-white text-black font-black uppercase tracking-widest hover:bg-cyan-400 transition-all mb-3;
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 92% 100%, 0 100%);
+}
+
+.wishlist-btn {
+  @apply w-full py-4 border border-white/20 text-white font-black uppercase tracking-widest hover:bg-white/10 transition-all;
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 92% 100%, 0 100%);
+}
+
+.game-title-giant {
+  @apply text-8xl font-black italic text-white uppercase tracking-tighter leading-[0.85] mb-6;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.description-text {
+  /* Increase font size and line height for readability */
+  @apply text-xl text-slate-300 leading-relaxed font-medium max-w-3xl;
+  letter-spacing: 0.02em;
+}
+
+.info-grid {
+  @apply grid grid-cols-2 md:grid-cols-3 gap-y-10 gap-x-4 pt-12 border-t border-white/10;
+}
+
+.info-block-label {
+  @apply text-fuchsia-500 text-[10px] font-black uppercase tracking-[0.3em] mb-2 block;
+}
+
+.info-block-value {
+  @apply text-white text-lg font-bold leading-tight;
+}
+
+/* Add/Update these in GameDetails.css */
+
+.vertical-info-list {
+  @apply flex flex-col gap-10 mt-12 pt-12 border-t border-white/10 relative;
+}
+
+/* The vertical "connector" line */
+.vertical-info-list::before {
+  content: '';
+  @apply absolute left-[3px] top-12 bottom-0 w-px bg-linear-to-b from-fuchsia-500 via-cyan-500 to-transparent opacity-30;
+}
+
+.vertical-info-item {
+  @apply pl-8 relative;
+}
+
+/* The small "node" circle for each item */
+.vertical-info-item::after {
+  content: '';
+  @apply absolute left-0 top-1 w-2 h-2 rounded-full bg-cyan-500 shadow-[0_0_8px_#22d3ee];
+}

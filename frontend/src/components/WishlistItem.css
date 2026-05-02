@@ -1,0 +1,13 @@
+@reference "../index.css";
+
+.wishlist-item-row {
+  @apply flex items-center justify-between p-4 bg-gray-900/30 border-b border-white/5 hover:bg-white/5 transition-all;
+}
+
+.wishlist-item-img {
+  @apply w-24 h-14 object-cover border border-white/10 grayscale-[0.5] group-hover:grayscale-0 transition-all;
+}
+
+.remove-btn {
+  @apply text-slate-600 hover:text-red-500 font-black transition-colors px-4 py-2 text-sm;
+}
