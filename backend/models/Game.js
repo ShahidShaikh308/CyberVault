@@ -12,6 +12,7 @@ const gameSchema = new mongoose.Schema({
   description: String,
   thumbnail: String,
   banner: String,
+  isFeatured: { type: Boolean, default: false },
   created_at: { type: Date, default: Date.now }
 });
 
