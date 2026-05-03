@@ -6,7 +6,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Browse from './pages/Browse';
 import Library from './pages/Library';
-import CartPage from './pages/cart';
+import CartPage from './pages/Cart';
 import GameDetails from './pages/GameDetails';
 
 function App() {
