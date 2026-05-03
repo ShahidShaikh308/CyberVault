@@ -7,7 +7,11 @@ const Game = require('./models/Game');
 const app = express();
 
 // --- 1. MIDDLEWARE (CRITICAL: MUST BE BEFORE ROUTES) ---
-app.use(cors()); 
+app.use(cors({
+  origin: process.env.NODE_ENV === 'production' 
+    ? 'https://cyber-vault-sigma.vercel.app' // Replace with your actual Vercel URL
+    : 'http://localhost:5173' // Standard Vite port
+}));
 app.use(express.json()); 
 
 // --- 2. DATABASE CONNECTION ---

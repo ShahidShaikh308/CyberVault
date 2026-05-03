@@ -9,6 +9,8 @@ const ResetPassword = () => {
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
+  const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
   const handleReset = async (e) => {
     e.preventDefault();
     if (newPassword !== confirmPassword) {
@@ -16,8 +18,12 @@ const ResetPassword = () => {
     }
 
     try {
-      const user = JSON.parse(localStorage.getItem('user'));
-      await axios.post('http://localhost:5000/api/auth/reset-password', {
+      const userData = localStorage.getItem('user');
+      if (!userData) {
+        return setMessage("ERROR: No active neural session found.");
+      }
+      const user = JSON.parse(userData);
+      await axios.post(`${API_BASE_URL}/api/auth/reset-password`, {
         userId: user.id,
         newPassword
       });

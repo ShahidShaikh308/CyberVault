@@ -9,6 +9,7 @@ const Library = () => {
   const [wishlist, setWishlist] = useState([]);
   const [activeTab, setActiveTab] = useState('owned'); 
   const [loading, setLoading] = useState(true);
+  const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
   const user = JSON.parse(localStorage.getItem('user'));
 
@@ -19,8 +20,8 @@ const Library = () => {
       try {
         // 1. We now destructure BOTH responses from the Promise array
         const [ownedRes, wishRes] = await Promise.all([
-          axios.get(`http://localhost:5000/api/library/owned/${user.id}`),
-          axios.get(`http://localhost:5000/api/wishlist/${user.id}`)
+          axios.get(`${API_BASE_URL}/api/library/owned/${user.id}`),
+          axios.get(`${API_BASE_URL}/api/wishlist/${user.id}`)
         ]);
         
         // 2. Map the data to your respective state variables
@@ -39,7 +40,7 @@ const Library = () => {
 
   const handleRemoveWishlist = async (gameId) => {
     try {
-      await axios.post('http://localhost:5000/api/wishlist/toggle', {
+      await axios.post(`${API_BASE_URL}/api/wishlist/toggle`, {
         userId: user.id,
         gameId: gameId
       });

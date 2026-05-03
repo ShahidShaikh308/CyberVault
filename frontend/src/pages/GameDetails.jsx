@@ -10,13 +10,14 @@ const GameDetails = () => {
   const [game, setGame] = useState(null);
   const [isPurchaseModalOpen, setIsPurchaseModalOpen] = useState(false);
   const [showPayment, setShowPayment] = useState(false); // Added for Buy Now flow
+  const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
   const user = JSON.parse(localStorage.getItem('user')); // Moved to top level for access in all functions
 
   const handleAddToCart = async () => {
     if (!user) return navigate('/login');
     try {
-      await axios.post('http://localhost:5000/api/cart/add', {
+      await axios.post(`${API_BASE_URL}/api/cart/add`, {
         userId: user.id,
         gameId: game._id
       });
@@ -35,7 +36,7 @@ const GameDetails = () => {
 
   const handleDirectCheckout = async () => {
     try {
-      await axios.post('http://localhost:5000/api/library/checkout', {
+      await axios.post(`${API_BASE_URL}/api/library/checkout`, {
         userId: user.id,
         gameIds: [game._id], // Single game array
         totalAmount: Math.floor(game.price * (1 - game.discount_percent / 100))
@@ -51,7 +52,7 @@ const GameDetails = () => {
   const handleWishlistClick = async () => {
     if (!user) return navigate('/login');
     try {
-      const res = await axios.post('http://localhost:5000/api/wishlist/toggle', {
+      const res = await axios.post(`${API_BASE_URL}/api/wishlist/toggle`, {
         userId: user.id,
         gameId: game._id
       });
@@ -62,7 +63,7 @@ const GameDetails = () => {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/games/${id}`)
+    axios.get(`${API_BASE_URL}/api/games/${id}`)
       .then(res => setGame(res.data))
       .catch(err => console.error(err));
   }, [id]);

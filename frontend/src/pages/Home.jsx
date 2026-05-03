@@ -7,9 +7,10 @@ import './Home.css';
 const Home = () => {
   const [games, setGames] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/games')
+    axios.get(`${API_BASE_URL}/api/games`)
       .then(res => setGames(res.data))
       .catch(err => console.error(err));
   }, []);
@@ -39,7 +40,7 @@ useEffect(() => {
         <Hero game={games[currentIndex]} />
       ) : (
         <div className="hero-placeholder h-[500px] w-full bg-gray-900 flex items-center justify-center border border-white/5">
-           <span className="text-cyan-500 font-black animate-pulse">BOOTING_SYSTEM...</span>
+          <span className="text-cyan-500 font-black animate-pulse">BOOTING_SYSTEM...</span>
         </div>
       )}
 

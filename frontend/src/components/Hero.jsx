@@ -2,6 +2,8 @@ import React from 'react';
 import './Hero.css';
 
 const Hero = ({ game }) => {
+  const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
   if (!game) return <div className="hero-container animate-pulse bg-gray-900"></div>;
 
   return (

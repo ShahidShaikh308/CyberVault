@@ -7,9 +7,10 @@ const Browse = () => {
   const [games, setGames] = useState([]);
   const [search, setSearch] = useState("");
   const [activeGenre, setActiveGenre] = useState("All");
+  const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/games')
+    axios.get(`${API_BASE_URL}/api/games`)
       .then(res => setGames(res.data))
       .catch(err => console.error(err));
   }, []);

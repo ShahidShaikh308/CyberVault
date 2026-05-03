@@ -8,18 +8,27 @@ import './Cart.css';
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [showPayment, setShowPayment] = useState(false); // State for payment modal
+  const [showPayment, setShowPayment] = useState(false);
   
+  // Neural Link Configuration
+  const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem('user'));
+  
+  // Retrieve User (with fallback)
+  const userString = localStorage.getItem('user');
+  const user = userString ? JSON.parse(userString) : null;
 
   useEffect(() => {
-    if (user) fetchCart();
+    if (user?.id) {
+      fetchCart();
+    } else {
+      setLoading(false);
+    }
   }, []);
 
   const fetchCart = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/cart/${user.id}`);
+      const res = await axios.get(`${API_BASE_URL}/api/cart/${user.id}`)
       setCartItems(res.data || []);
       setLoading(false);
     } catch (err) {
@@ -30,7 +39,7 @@ const Cart = () => {
 
   const removeFromCart = async (gameId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/cart/${user.id}/${gameId}`);
+      await axios.delete(`${API_BASE_URL}/api/cart/${user.id}/${gameId}`);
       setCartItems(prev => prev.filter(item => item._id !== gameId));
     } catch (err) {
       console.error("Remove failed");
@@ -40,7 +49,7 @@ const Cart = () => {
   // --- NEW: THE CHECKOUT PROCESS ---
   const handleFinalCheckout = async () => {
     try {
-      await axios.post('http://localhost:5000/api/library/checkout', {
+      await axios.post(`${API_BASE_URL}/api/library/checkout`,{
         userId: user.id,
         gameIds: cartItems.map(g => g._id),
         totalAmount: calculateTotal()

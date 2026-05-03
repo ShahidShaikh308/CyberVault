@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 const GameCard = ({ game }) => {
   const hasDiscount = game.discount_percent > 0;
+  const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 const handleWishlist = async (e) => {
   e.preventDefault(); // Stop the card from navigating to the details page
@@ -14,7 +15,7 @@ const handleWishlist = async (e) => {
   if (!user) return alert("Please login to wishlist games!");
 
   try {
-    const res = await axios.post('http://localhost:5000/api/wishlist/toggle', {
+    const res = await axios.post(`${API_BASE_URL}/api/wishlist/toggle`, {
       userId: user.id,
       gameId: game._id
     });

@@ -10,6 +10,7 @@ const Navbar = () => {
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
+  const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
   useEffect(() => {
     const savedUser = localStorage.getItem('user');
@@ -30,7 +31,7 @@ const Navbar = () => {
 
   const fetchCartCount = async (userId) => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/cart/${userId}`);
+      const res = await axios.get(`${API_BASE_URL}/api/cart/${userId}`);
       setCartCount(res.data.length);
     } catch (err) {
       console.error("Cart sync failed");
